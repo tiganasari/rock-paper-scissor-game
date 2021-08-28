@@ -38,6 +38,15 @@ const game = () => {
         
     };
 
+    const updateScore = () => {
+        const playerScore = document.querySelector('.player-score p');
+        const computerScore = document.querySelector('.computer-score p');
+        playerScore.textContent = pScore;
+        computerScore.textContent = cScore;
+
+        
+    }
+
     const compareHands = (playerChoice, computerChoice) => {
         const winner = document.querySelector('.winner');
         // when it's tie
@@ -48,10 +57,14 @@ const game = () => {
         // rock
         if(playerChoice === 'rock') {
             if(computerChoice === 'scissors') {
-                winner.textContent = 'Player Wins!!'
+                winner.textContent = 'Player Wins!!';
+                pScore++;
+                updateScore();
                 return;
             } else {
                 winner.textContent = 'Soz Computer Wins';
+                cScore++;
+                updateScore();
                 return;
             }
         }
@@ -59,18 +72,26 @@ const game = () => {
         if(playerChoice === 'paper') {
             if(computerChoice === 'rock') {
                 winner.textContent = 'Player Wins!!'
+                pScore++;
+                updateScore();
                 return;
             } else {
                 winner.textContent = 'Soz Computer Wins';
+                cScore++;
+                updateScore();
                 return;
             }
         }//scissors
         if(playerChoice === 'scissors') {
             if(computerChoice === 'rock') {
                 winner.textContent = 'Player Wins!!'
+                pScore++;
+                updateScore();
                 return;
             } else {
                 winner.textContent = 'Soz Computer Wins';
+                cScore++;
+                updateScore();
                 return;
             }
         }
